@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: jonisson-week4
+  name: jonisson-week4
+  namespace: demo-week4
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: jonisson-week4
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: jonisson-week4
+    spec:
+      containers:
+      - image: nginx:1.19.2
+        name: nginx
+        resources:
+          limits:
+            cpu: "0.3"
+            memory: "128Mi"
+          requests:
+            cpu: "0.1"
+            memory: "64Mi"
+

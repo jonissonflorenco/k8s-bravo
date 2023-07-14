@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: jonisson-week4
+spec:
+  template:
+    spec:
+      containers:
+        - name: job
+          image: alpine
+          command: ["echo", "RampUP Week4"]
+        restartPolicy: Never

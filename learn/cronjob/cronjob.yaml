@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: jonisson-week4
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: jonisson-week4
+            image: busybox
+            args:
+            - /bin/bash
+            - -c
+            - date; echo RampUP Week4; sleep 30
+          restartPolicy: OnFailure

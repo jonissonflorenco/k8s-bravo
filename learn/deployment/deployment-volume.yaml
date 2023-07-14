@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: jonisson-week4
+  name: jonisson-week4
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jonisson-week4
+  template:
+    metadata:
+      labels:
+        app: jonisson-week4
+    spec:
+      containers:
+        - image: redis
+          name: redis
+          ports:
+            - containerPort: 6379
+          volumeMounts:
+           - name: redis-data
+             mountPath: /data
+      volumes:
+        - name: redis-data
+          persistentVolumeClaim:
+            claimName: pvc-demo

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: jonisson-week4
+  name: jonisson-week4
+spec:
+  containers:
+  - image: nginx
+    name: jonisson-week4
+    ports:
+    - containerPort: 80
+    resources:
+      limits:
+        cpu: "0.5"
+        memory: "128Mi"
+      requests:
+        cpu: "0.1"
+        memory: "64Mi"
